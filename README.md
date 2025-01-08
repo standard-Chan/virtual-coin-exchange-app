@@ -1,75 +1,45 @@
-<<<<<<< HEAD
 # virtual-coin-exchange-app
 가상 코인 거래 app
 
-# Getting Started with Create React App
+## 설계
+1. 전체 화면 설계  
+    
+    > 화면 구성 컴포넌트
+    > > 상단메뉴
+    > >
+    > > 본문
+    > > > 상단정보
+    > > >
+    > > > 하단정보
+    > > > > 검색, 입력
+    > > > > 결과, 정보
+    > >
+    > > 처리 정보
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2. 요구 사항 분석 (기능)
 
-## Available Scripts
+    상단 메뉴 (이동 기능)
+    - 홈: 홈으로 돌아오기
+    - 회원 가입: modal 출력
 
-In the project directory, you can run:
+    상단 정보 (거래 기능)
+    - 코인 목록 : 코인 목록을 리스트로 출력
+    - 구매 : [구매] 버튼 클릭 -> 구매 modal 띄우기
+    - 판매: [판매] 버튼 클릭 -> 판매 modal 띄우기
 
-### `npm start`
+    하단 정보 (거래 정보 요청, 검색 기능)
+    - 검색 결과 목록: 목록 출력
+    - 검색 요청: 서버에 데이터 요청
+    - 검색어 입력
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    처리정보 (처리 결과 알림 기능)
+    - 화면 알림: 처리 정보 결과 요청
+    - 처리 결과 표시: 서버에서 전달받은 메시지 표시, 00초 후 사라지게 하기
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> master
+3. UI 공용 컴포넌트 
+    - Theme
+    - layout
+    - spacing
+    - screen output
+    - data table
+    - interaction
