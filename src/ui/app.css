@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+
+  /* 텍스트 가장자리를 부드럽게 만듦  */
+  -webkit-font-smoothing: antialiased;
+
+  /* 안티 애일리어싱 : 텍스트의 가장자리를 부드럽게 하여 선명하게 보이도록 한다.   */
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #eeeeee;
+}
