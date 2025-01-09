@@ -17,7 +17,6 @@ TableRow.propTypes = {
   isHeader: PropTypes.bool,
 };
 TableRow.defaultProps = {
-  baseline: false,
   isHeader: false,
 };
 

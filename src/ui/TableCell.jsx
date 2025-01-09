@@ -1,8 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/*
+  JSX에서는 <>안에 변수를 넣는것도 인지할 수 있다.
+  value = h1;
+  <value>를 하면 <h1>으로 인지된다.
+
+*/
+
 const TableCell = ({ align, baseline, children, isHeader }) => {
-  return <td>{children}</td>;
+  const Tag = isHeader ? 'th' : 'td';
+  return <Tag>{children}</Tag>;
 };
 
 TableCell.propTypes = {
