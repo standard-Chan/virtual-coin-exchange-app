@@ -22,7 +22,7 @@ const TransactionSearchFilter = ({ setFilter, setTransactionList, onChange, valu
       <FormConsumer>
         {({ onChange, values }) => (
           <InlineList align={'flex-start'} spacingBetween={10} verticalAlign={'center'}>
-            <Text>검색</Text>
+            <Text>검색{console.log(values)}</Text>
             <Select 
             name="code"
             label="코인 코드"
@@ -34,16 +34,16 @@ const TransactionSearchFilter = ({ setFilter, setTransactionList, onChange, valu
               <Option label="도지코인(DOZY)" value="DOZY"/>
             </Select>
             <Input
-              name="minAmount"
+              name="currentPrice_gte"
               label="최소 거래가"
               onChange={onChange}
-              value={values["minAmount"]}
+              value={values["currentPrice_gte"]}
             />
             <Input
-              name="maxAmount"
-              label="최소 거래가"
+              name="currentPrice_lte"
+              label="최대 거래가"
               onChange={onChange}
-              value={values["maxAmount"]}
+              value={values["currentPrice_lte"]}
             />
             <Button type="submit">검색</Button>
           </InlineList>
