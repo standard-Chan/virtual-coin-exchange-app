@@ -1,0 +1,20 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "code": "BTX",
+      "name": "비트코인",
+      "totalPrice" : "123,123원",
+      "currentPrice": "4200000원",
+      "datetime": "2020/2/12"
+    },
+    {
+      "id": 2,
+      "code": "ETH",
+      "name": "이더리움",
+      "totalPrice" : "1,332,123원",
+      "currentPrice": "1200000원",
+      "datetime": "2020/6/12"
+    }
+  ]
+}

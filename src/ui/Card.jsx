@@ -1,20 +1,22 @@
-import PropTypes from 'prop-types';
-import Spacing from './Spacing';
+import PropTypes from "prop-types";
+import Spacing from "./Spacing";
+import styled from "styled-components";
 
-const Card = ({children}) => {
+const CardContainer = styled.div`
+  display: flex;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #a4d4ed;
+  padding: 10px;
+`;
+
+const Card = ({ children }) => {
   return (
-    <div style={{
-      borderRadius:'10px',
-      backgroundColor:'#b5d0d6',
-      border:'solid 2px #a3a3a3',
-      width:'300px'
-    }}>
-      <Spacing>
-        {children}
-      </Spacing>
-    </div>
+    <CardContainer>
+      <Spacing>{children}</Spacing>
+    </CardContainer>
   );
-}
+};
 
 Card.propTypes = {
   children: PropTypes.node,

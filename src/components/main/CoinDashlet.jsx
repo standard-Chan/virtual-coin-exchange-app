@@ -8,13 +8,13 @@ const CoinDashlet = ({ name, priceLabel }) => {
   return (
     <div>
       <Card>
-        <Heading>
+        <Heading level={3} marginTop={'10px'} marginBottom={'10px'}>
           {name}
           <Text>{priceLabel}</Text>
         </Heading>
-        <InlineList>
-          <Button>매도</Button>
-          <Button>매수</Button>
+        <InlineList align={'flex-start'} spacingBetween={10} verticalAlign={'center'}>
+          <Button size={'small'}>매도</Button>
+          <Button size={'small'}>매수</Button>
         </InlineList>
       </Card>
     </div>

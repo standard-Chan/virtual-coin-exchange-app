@@ -1,40 +1,38 @@
+import { useEffect, useState } from "react";
 import Card from "../../ui/Card";
 import Heading from "../../ui/Heading";
-import TransactionSearchFilter from "./TransactionSearchFilter";
+import Spacing from "../../ui/Spacing";
+import TransactionSearchFilterContainer from "../../containers/main/TransactionSearchFilterContainer";
 import TransactionTable from "./TransactionTable";
+import Api from "../../lib/Api";
 
+const TransactionList = ({transactions, setTransactionList}) => {
 
-const TransactionList = () => {
+  useEffect(() => {
+    console.log("useEffect");
+    Api.get("/transactions").then(({data}) => setTransactionList(data));
+  }, []);
+  console.log(transactions);
 
-  const state = {
-    transactions: [
-      {
-        id: 'btx',
-        name: '비트코인',
-        totalPrice : '123,123원',
-        currentPrice: '4200000원',
-        datetime: '2020/2/12', 
-      },
-      {
-        id: 'ith',
-        name: '이더리움',
-        totalPrice : '233,123원',
-        currentPrice: '4200000원',
-        datetime: '2021/4/12', 
-      }
-    ],
-  }
   return (
     <div>
-      <Heading>거래 현황</Heading>
+      <Heading level={2} marginTop={"10px"} marginBottom={"10px"}>
+        거래 현황
+      </Heading>
       <Card>
-        <TransactionSearchFilter/>
+        <TransactionSearchFilterContainer/>
       </Card>
+      <Spacing top={20} bottom={10} vertical={50} />
       <Card>
-        <TransactionTable transactions={state.transactions}/>
+        <TransactionTable transactions={transactions} />
       </Card>
     </div>
   );
-}
+};
+
+TransactionList.defaultProps = {
+  transactions: [],
+  setTransactionList: () => {},
+};
 
 export default TransactionList;

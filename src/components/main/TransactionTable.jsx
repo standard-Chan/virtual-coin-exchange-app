@@ -28,16 +28,20 @@ const TransactionTable = ({ transactions }) => {
           <TableCell>시간</TableCell>
         </TableRow>
       </TableHead>
-      <TableBody>
-        {transactions.map(({id, name, totalPrice, currentPrice, datetime}) => (
-        <TableRow key={id}>
-          <TableCell>{name}</TableCell>
-          <TableCell>{totalPrice}</TableCell>
-          <TableCell>{currentPrice}</TableCell>
-          <TableCell>{datetime}</TableCell>
-        </TableRow>
-        ))}
-      </TableBody>
+      {transactions.length !== 0 && (
+        <TableBody>
+          {transactions.map(
+            ({ id, name, totalPrice, currentPrice, datetime }) => (
+              <TableRow key={id}>
+                <TableCell>{name}</TableCell>
+                <TableCell>{totalPrice}</TableCell>
+                <TableCell>{currentPrice}</TableCell>
+                <TableCell>{datetime}</TableCell>
+              </TableRow>
+            )
+          )}
+        </TableBody>
+      )}
     </Table>
   );
 };

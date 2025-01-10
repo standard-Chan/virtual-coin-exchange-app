@@ -34,7 +34,6 @@ const FormProvider = ({ initValues, validate, onSubmit, children }) => {
   */
   const onChange = useCallback(
     (name, updatedValue) => {
-      console.log(updatedValue);
       setValues((prevValues) => {
         const newValues = {
           ...prevValues,
