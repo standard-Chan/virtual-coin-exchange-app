@@ -1,12 +1,15 @@
 import AppLayout from "./components/AppLayout";
 import MainPage from "./components/main/MainPage";
+import ModalProvider from "./provider/ModalProvider";
 
 const CoinApp = () => {
   return (
-    <AppLayout>
-      <MainPage/>
-    </AppLayout>
-  )
-}
+    <ModalProvider>
+      <AppLayout>
+        <MainPage />
+      </AppLayout>
+    </ModalProvider>
+  );
+};
 
 export default CoinApp;

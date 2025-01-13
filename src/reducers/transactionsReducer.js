@@ -7,7 +7,7 @@ const initState = {
 };
 
 const transactions = (state = initState, actions) => {
-  console.log('action : ', actions);
+  
   const { type, payload } = actions;
 
   switch (type) {

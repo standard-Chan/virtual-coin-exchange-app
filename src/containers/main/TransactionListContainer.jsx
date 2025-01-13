@@ -5,7 +5,7 @@ import setTransactionListAction from "../../actions/transactionActions";
 
 
 const TransactionListContainer = () => {
-  const ids = useSelector(state => {console.log('state:', state); return state.transactions.ids});
+  const ids = useSelector(state => {return state.transactions.ids});
   const entities = useSelector(state => state.transactions.entities);
 
   const dispatch = useDispatch();
