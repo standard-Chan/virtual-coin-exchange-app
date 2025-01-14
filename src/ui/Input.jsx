@@ -16,7 +16,7 @@ const StyledLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
-  width: 50%;
+  width: ${({ width }) => width || '50%'};
   padding: 10px;
   font-size: 16px;
   border: 1px solid ${({ error }) => (error ? '#dc3545' : '#ced4da')};
@@ -35,7 +35,7 @@ const ErrorMessage = styled.div`
   font-size: 14px;
 `;
 
-const Input = ({ name, value, label, errorMessage, onChange }) => {
+const Input = ({ name, value, label, errorMessage, onChange, width }) => {
   const handleChange = (e) => {
     if (onChange) {
       onChange(name, e.target.value);
@@ -53,6 +53,7 @@ const Input = ({ name, value, label, errorMessage, onChange }) => {
         value={value || ''}
         onChange={handleChange}
         error={!!errorMessage}
+        width={width}
       />
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </StyledFieldset>

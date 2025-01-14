@@ -1,20 +1,42 @@
 {
   "transactions": [
     {
-      "id": 1,
+      "id": "1",
       "code": "BTX",
       "name": "비트코인",
-      "totalPrice" : 123123,
+      "totalPrice": 123123,
       "currentPrice": 10,
       "datetime": "2020/2/12"
     },
     {
-      "id": 2,
+      "id": "2",
       "code": "ETH",
       "name": "이더리움",
-      "totalPrice" : 1332123,
+      "totalPrice": 1332123,
       "currentPrice": 5,
       "datetime": "2020/6/12"
+    },
+    {
+      "id": "af87",
+      "currentPrice": "216000원",
+      "name": "이더리움"
+    },
+    {
+      "id": "9d50",
+      "currentPrice": "216000원",
+      "name": "이더리움"
+    },
+    {
+      "id": "f12d",
+      "currentPrice": "3216000원",
+      "amount": "3",
+      "name": "비트코인"
+    },
+    {
+      "id": "00e4",
+      "currentPrice": "3216000원",
+      "amount": "54",
+      "name": "비트코인"
     }
   ]
 }
