@@ -53,6 +53,80 @@
   해당 컴포넌트를 style, type 등등을 인자로 받아 출력해서 간편하게 왔다갔다 없이 만들어 내게끔 만들자
   여기에서는 style을 아예 별도의 파일로 만들어서 style.alignCenter 처럼 사용했는데, 이 방법도 유용한 것 같다.
 
+## Modal 관리
+  ### 기초적인 Modal 컴포넌트
+  react에서 Modal은 보통 context API를 통해서 관리한다. 다음 Modal 컴포넌트를 보자.
+  Modal 내부 요소들은 children을 통해 전달한다.
+  ```
+  const Modal = ({children}) => {
+    return (
+      <div style={styles.overlay}>
+        <div style={styles.modal}>
+          <button onClick={onClose} style={styles.closeButton}>
+            닫기
+          </button>
+          {children}
+        </div>
+      </div>
+    );
+  }
+  // 이후 사용시
+  <Modal> <ModalContent {...props}/> </Modal>
+  ```
+  ### context API를 통한 Modal 관리
+  1. Provider 다음 2가지를 value를 전달하고, rendering에 Modal jsx를 포함한다.
+
+    - openModal 함수 (ID)
+    - closeModal 함수 ()
+    - Content = contentMap[ID]
+
+    위 2 함수의 기능은 다음과 같이 구현한다.
+    - modal open
+      openModal(MODAL_ID, MODAL_PROPS) 이를 통해 
+```
+    rendering 할때 content를 포함한다.
+    return (
+      <Provider value = ..>
+        <Content>
+      </Provider>
+    )
+```
+  ##### 구체적인 설명
+  1. Provider에 미리 Modal들의 jsx를 저장해놓는다.
+    - 다음과 같이 createModalProvider로 사용할 Modal의 jsx를 모아두면 좋다.
+    ```
+      const ModalProvider = createModalProvider({
+        [MODAL_ID]: Modal 컴포넌트, // TradCoinPage는 모달 내용을 렌더링할 컴포넌트
+      })
+    ```
+
+  2. 다음과 같이 함수 형태로 반환하도록 만든다. 
+  ```
+    function createModalProvider(modalContentMap = {}) {
+      return function ModalProvider({children}) {
+        // HOOK
+        const showModal  // 모달을 화면에 출력할지 결정하는 훅
+
+        MODAL_OPEN_함수 = (open할 MODAL_ID, MODAL에 전달할 props) => {}
+        MODAL_CLOSE_함수 = () => ShowModal 변수를 false로 변경
+        // 아래를 통해서 MODAL의 JSX를 얻는다.
+        const ModalContent = modalContentMap[MODAL_ID];
+        // 이후 렌더링
+        return (
+          <Provider value = {MODAL_OPEN, MODAL_CLOSE}>
+            {children} // Modal이 없을 경우에 그대로 나오는 컨텐츠
+            {showModal && ModalContent && (
+              <Modal>
+                <ModalContent {...modalProps}>
+              </Modal>
+              )}
+          </Provider>
+        )
+      }
+    }
+  ```
+
+
 
 # 설계 외의 react 관련 사항
 
@@ -61,8 +135,14 @@
   Provider와 Consumer 사용법
 
 ```
-  const MyContent = createContext();
-  // Provider 사용
+  const {Provider, Consumer} = createContext({});
+  <Provider value = { 사용할 값 }>
+    <Consumer>
+    {( value ) => (<div>{value}</div>)}
+    </Consumer>
+  </Provider>
+
+  // 실제 사용 예시
     const App = () => {
       return (
         <MyContext.Provider value="Hello Context!">
@@ -85,4 +165,7 @@
 ```
 
   저장할 때는 <.Provider>에 props로 저장하고, 사용할때는 <.Consumer>로 감싸서 사용하면 된다.
-  같은 context에서 파생된 얘들이라서 서로 연결되어있다. 그래서 provider에 저장하면 consumer로 쓸 수 있는거임
+  같은 context에서 파생된 얘들이라서 서로 연결되어있다. 그래서 provider에 저장하면 consumer로 쓸 수 있는것.
+
+
+### 
