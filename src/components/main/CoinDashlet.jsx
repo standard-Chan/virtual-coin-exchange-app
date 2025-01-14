@@ -5,9 +5,26 @@ import InlineList from "../../ui/InlineList";
 import Text from "../../ui/Text";
 import { Consumer as ModalConsumer } from "../../ui/Modal/context";
 import { TRADE_COIN_MODAL } from "../../constant/modals";
+import { useEffect, useState } from "react";
 
 const CoinDashlet = ({ name, priceLabel }) => {
-  console.dir(ModalConsumer);
+  const [code, setCode] = useState();
+  useEffect(() => {
+    switch (name) {
+      case "비트코인":
+        setCode("BTX");
+        break;
+      case "이더리움":
+        setCode("ETH");
+        break;
+      case "도지코인":
+        setCode("DOZY");
+        break;
+      default:
+        break;
+    }
+  }, [name]);
+
   return (
     <ModalConsumer>
       {({ openModal }) => (
@@ -26,6 +43,7 @@ const CoinDashlet = ({ name, priceLabel }) => {
               onPress={() =>
                 openModal(TRADE_COIN_MODAL, {
                   type: "buy",
+                  code,
                   name,
                   price: priceLabel,
                 })
@@ -39,6 +57,7 @@ const CoinDashlet = ({ name, priceLabel }) => {
                 openModal(TRADE_COIN_MODAL, {
                   type: "sell",
                   name,
+                  code,
                   price: priceLabel,
                 })
               }

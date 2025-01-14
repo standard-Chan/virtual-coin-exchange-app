@@ -6,6 +6,8 @@ const initState = {
   entities: {},
 };
 
+// 받은 axios 데이터를 transaction 형식에 맞게 객체 재생성
+
 const transactions = (state = initState, actions) => {
   
   const { type, payload } = actions;

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import TransactionList from "../../components/main/TransactionList";
 import { useCallback } from "react";
-import setTransactionListAction from "../../actions/transactionActions";
+import requestTransactionListAction from "../../actions/transactionActions";
 
 
 const TransactionListContainer = () => {
@@ -9,13 +9,15 @@ const TransactionListContainer = () => {
   const entities = useSelector(state => state.transactions.entities);
 
   const dispatch = useDispatch();
-  const setTransactionList = useCallback((transactions) => {
-    return dispatch(setTransactionListAction(transactions))}, []);
+  const requestTransactionList = useCallback(() => {
+    return dispatch(requestTransactionListAction())
+  }, []);
 
+  
   const transactions = ids.map(id => entities[id]);
 
   return (
-    <TransactionList transactions={transactions} setTransactionList={setTransactionList}/>
+    <TransactionList transactions={transactions} requestTransactionList={requestTransactionList}/>
   );
 }
 

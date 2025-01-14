@@ -17,26 +17,18 @@
       "datetime": "2020/6/12"
     },
     {
-      "id": "af87",
-      "currentPrice": "216000원",
-      "name": "이더리움"
-    },
-    {
-      "id": "9d50",
-      "currentPrice": "216000원",
-      "name": "이더리움"
-    },
-    {
-      "id": "f12d",
+      "id": "0cea",
       "currentPrice": "3216000원",
-      "amount": "3",
+      "amount": "1",
+      "code": "BTX",
       "name": "비트코인"
     },
     {
-      "id": "00e4",
-      "currentPrice": "3216000원",
-      "amount": "54",
-      "name": "비트코인"
+      "id": "fbc7",
+      "currentPrice": "30000원",
+      "amount": "2",
+      "code": "DOZY",
+      "name": "도지코인"
     }
   ]
 }

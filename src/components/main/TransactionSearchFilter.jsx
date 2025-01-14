@@ -1,3 +1,4 @@
+import requestTransactionListAction from "../../actions/transactionActions";
 import Api from "../../lib/Api";
 import Button from "../../ui/Button";
 import Form, { FormConsumer } from "../../ui/Form";
@@ -16,9 +17,9 @@ values = {
 }
 */
 
-const TransactionSearchFilter = ({ setFilter, setTransactionList, onChange, values, history }) => {
+const TransactionSearchFilter = ({ setFilter, requestTransactionList, onChange, values, history }) => {
   return (
-    <Form onSubmit={(values) => Api.get("/transactions", {params:values}).then(({data})=>setTransactionList(data))}>
+    <Form onSubmit={(values) => requestTransactionList(values)}>
       <FormConsumer>
         {({ onChange, values }) => (
           <InlineList align={'flex-start'} spacingBetween={10} verticalAlign={'center'}>

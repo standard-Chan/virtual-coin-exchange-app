@@ -4,7 +4,6 @@ import ModalProvider from "./provider/ModalProvider";
 import { Consumer } from "./ui/Modal/context";
 
 const CoinApp = () => {
-  console.log('provoider : ', ModalProvider.Provider);
   return (
     <ModalProvider>
       <AppLayout>

@@ -9,7 +9,7 @@ const CoinOverView = () => {
       <InlineList align={'flex-start'} spacingBetween={10} verticalAlign={'center'}>
         <CoinDashlet name="비트코인" priceLabel="3216000원"/>
         <CoinDashlet name="이더리움" priceLabel="216000원"/>
-        <CoinDashlet name="두잇코인" priceLabel="30000원"/>
+        <CoinDashlet name="도지코인" priceLabel="30000원"/>
       </InlineList>
     </>
   )

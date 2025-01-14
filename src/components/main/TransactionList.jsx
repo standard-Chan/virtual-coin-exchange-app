@@ -4,15 +4,12 @@ import Heading from "../../ui/Heading";
 import Spacing from "../../ui/Spacing";
 import TransactionSearchFilterContainer from "../../containers/main/TransactionSearchFilterContainer";
 import TransactionTable from "./TransactionTable";
-import Api from "../../lib/Api";
 
-const TransactionList = ({transactions, setTransactionList}) => {
-
+const TransactionList = ({transactions, requestTransactionList}) => {
+  console.log('transaction : ', transactions);
   useEffect(() => {
-    console.log("useEffect");
-    Api.get("/transactions").then(({data}) => setTransactionList(data));
+    requestTransactionList();
   }, []);
-  console.log(transactions);
 
   return (
     <div>
